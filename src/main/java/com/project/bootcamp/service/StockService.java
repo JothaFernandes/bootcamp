@@ -27,8 +27,8 @@ public class StockService {
 
     @Transactional
     public StockDTO save(StockDTO dto) {
-        Optional<Stock> optionalEntity = repository.findByNameAndDate(dto.getName(), dto.getDate());
-        if(optionalEntity.isPresent()){
+        Optional<Stock> optionalStock = repository.findByNameAndDate(dto.getName(), dto.getDate());
+        if(optionalStock.isPresent()){
             throw new BusinessException(MessageUtils.STOCK_ALREADY_EXISTS);
         }
         Stock stock = mapper.toEntity(dto);
@@ -38,8 +38,8 @@ public class StockService {
 
     @Transactional
     public StockDTO update(StockDTO dto) {
-        Optional<Stock> optionalstock = repository.findByStockUpdate(dto.getName(), dto.getDate(), dto.getId());
-        if(optionalstock.isPresent()){
+        Optional<Stock> optionalStock = repository.findByStockUpdate(dto.getName(), dto.getDate(), dto.getId());
+        if(optionalStock.isPresent()){
             throw new BusinessException(MessageUtils.STOCK_ALREADY_EXISTS);
         }
         Stock stock = mapper.toEntity(dto);
