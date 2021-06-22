@@ -16,5 +16,5 @@ spring:
     hibernate:
       ddl-auto: none
 
- application:
+application:
   description: Projeto criado para o bootcamp DIO - Santander
